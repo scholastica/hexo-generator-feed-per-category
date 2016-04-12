@@ -1,0 +1,16 @@
+{
+  "name": "hexo-generator-category-feed",
+  "version": "1.0.0",
+  "description": "Generates a feed per category for hexo.io based blogs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Willem Meints <willemm@infosupport.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "hexo": "^3.2.0",
+    "mocha": "^2.4.5"
+  }
+}
