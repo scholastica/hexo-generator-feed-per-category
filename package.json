@@ -4,7 +4,7 @@
   "description": "Generates a feed per category for hexo.io based blogs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wmeints/hexo-generator-category-feed.git"
+    "url": "https://github.com/wmeints/hexo-generator-feed-per-category.git"
   },
   "main": "index.js",
   "scripts": {
