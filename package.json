@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-category-feed",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Generates a feed per category for hexo.io based blogs",
   "repository": {
     "type": "git",
