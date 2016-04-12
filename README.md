@@ -4,7 +4,7 @@ This plugin enables Hexo to generate an RSS or Atom feed per category on the web
 Use npm to install this plugin:
 
 ```
-npm install hexo-generator-category-feed --save
+npm install hexo-generator-feed-per-category --save
 ```
 
 In order to use the plugin, add the following to your _config.yml file
