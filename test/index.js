@@ -7,7 +7,9 @@ var Hexo = require('hexo');
 describe('hexo-generator-category-feed', function() {
     // Start hexo and register the helpers used by hexo.
     var hexo = new Hexo(__dirname, { silent: true });
-    var helpers = require('../node_modules/hexo/lib/plugins/helper')(hexo);
+    var helpers = require('../node_modules/hexo/lib/plugins/helper').bind(hexo);
+
+    helpers(hexo);
 
     var Post = hexo.model('Post');
     var generator = require('../lib/generator').bind(hexo);
@@ -15,8 +17,8 @@ describe('hexo-generator-category-feed', function() {
     var locals = {};
     var posts = null;
 
-    hexo.config.category_feed_generator = {
-
+    hexo.config.feed = {
+        format: 'rss2'
     };
 
     before(function() {
@@ -38,6 +40,30 @@ describe('hexo-generator-category-feed', function() {
     });
 
     it('generates RSS2 feeds', function() {
+        hexo.config.feed = {
+            format: 'rss2'
+        };
+
         var result = generator(locals);
+
+        result.length.should.eql(3);
+
+        result[0].path.should.eql("/categories/javascript/rss2.xml");
+        result[1].path.should.eql("/categories/web/rss2.xml");
+        result[2].path.should.eql("/categories/windows/rss2.xml");
+    });
+
+    it('generates Atom feeds', function() {
+        hexo.config.feed = {
+            format: 'atom'
+        };
+
+        var result = generator(locals);
+
+        result.length.should.eql(3);
+
+        result[0].path.should.eql("/categories/javascript/atom.xml");
+        result[1].path.should.eql("/categories/web/atom.xml");
+        result[2].path.should.eql("/categories/windows/atom.xml");
     });
 });

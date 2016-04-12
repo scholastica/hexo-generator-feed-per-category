@@ -12,5 +12,9 @@
     "chai": "^3.5.0",
     "hexo": "^3.2.0",
     "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "nunjucks": "^2.4.1",
+    "object-assign": "^4.0.1"
   }
 }
