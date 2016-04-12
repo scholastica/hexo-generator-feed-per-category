@@ -2,9 +2,13 @@
   "name": "hexo-generator-category-feed",
   "version": "1.0.0",
   "description": "Generates a feed per category for hexo.io based blogs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmeints/hexo-generator-category-feed.git"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/index.js"
   },
   "author": "Willem Meints <willemm@infosupport.com>",
   "license": "Apache-2.0",
