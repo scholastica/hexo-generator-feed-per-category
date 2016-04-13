@@ -1,21 +1,37 @@
-Hexo-Generator-Category-Feed
-----------------------------
-This plugin enables Hexo to generate an RSS or Atom feed per category on the website.
-Use npm to install this plugin:
+_Note: This is a fork of [Hexo-Generator-Category-Feed](https://github.com/wmeints/hexo-generator-feed-per-category)._
 
-```
-npm install hexo-generator-feed-per-category --save
-```
+### Background
+We have a rather specific use case for which no community supported hexo plugins exist:
 
-In order to use the plugin, add the following to your _config.yml file
+    Given I am a reader of the blog
+    And I want to receive a newsletter (i.e. blog updates via email)
+    When I complete the newsletter signup form
+    And select each subject area that interests me
+    Then my newsletter should only include posts related to subjects I selected
 
-```
-feed:
-    format: rss2
-    limit: 10
-```
+### Problem
+MailChimp makes it very easy to create a signup form which includes check boxes for various subject areas. The bigger challenge is automatically creating and sending those emails every week. Luckily, MailChimp provides a handy [RSS-to-Email](http://mailchimp.com/features/rss-to-email) feature. But, to use this feature, we need a _separate RSS feed for each subject area_.
 
-Currently this plugin supports two formats:
+### Solution
+Hexo has plugins for creating [a single RSS feed](https://github.com/hexojs/hexo-generator-feed) as well as [RSS feeds for each category](https://github.com/wmeints/hexo-generator-feed-per-category). Unfortunately, those options are not quite what we need.
 
- - atom
- - rss2
+We need a simple way to specify which newsletters a post should be included in. This plugin lets you do just that by adding a little metadata to your post's front matter. For example, to include your post in the SPRJ newsletter:
+
+    newsletters:
+    - SPRJ
+
+And, you can include a post in more than one newsletter:
+
+    newsletters:
+    - SPRJ
+    - LR
+
+Finally, this will produce two separate RSS feeds:
+
+    http://blog.scholasticahq.com/lr-rss.xml
+    http://blog.scholasticahq.com/sprj-rss.xml
+
+Which is exactly what we need to support MailChimp's [RSS-to-Email](http://mailchimp.com/features/rss-to-email) feature!
+
+### Technical details
+To accomplish this, we forked / hacked the [Hexo-Generator-Category-Feed](https://github.com/wmeints/hexo-generator-feed-per-category) plugin. For more information, including a diff showing exactly what we changed, see https://github.com/scholastica/hexo-generator-feed-per-category/commit/5b2e6899dd09f98b04291a1358bb76a54f47b98b.
