@@ -16,7 +16,6 @@
             <link>{{ (url + post.path) | uriencode }}</link>
             <guid>{{ (url + post.path) | uriencode }}</guid>
             <pubDate>{{ post.date.toDate().toUTCString() }}</pubDate>
-            <media:content>{{ post.hero | uriencode }}</media:content>
             {% if post.hero %}
             <media:content url="{{ post.hero | uriencode }}"/>
             {% endif %}
