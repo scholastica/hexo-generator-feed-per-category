@@ -18,7 +18,9 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
-    "nunjucks": "^2.4.1",
-    "object-assign": "^4.0.1"
+    "nunjucks": "3.1.7",
+    "object-assign": "4.1.1",
+    "underscore": "1.9.1",
+    "underscore.string": "3.3.5"
   }
 }

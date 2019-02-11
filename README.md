@@ -33,5 +33,22 @@ Finally, this will produce two separate RSS feeds:
 
 Which is exactly what we need to support MailChimp's [RSS-to-Email](http://mailchimp.com/features/rss-to-email) feature!
 
+
+### Ordering
+
+You can limit and order by fields
+
+In the _config.yml add a `sort_by` key
+
+Example:
+
+    feed:
+      type: atom
+      limit: 0
+      sort_by:
+        field: date
+        direction: desc
+
+
 ### Technical details
 To accomplish this, we forked / hacked the [Hexo-Generator-Category-Feed](https://github.com/wmeints/hexo-generator-feed-per-category) plugin. For more information, including a diff showing exactly what we changed, see https://github.com/scholastica/hexo-generator-feed-per-category/commit/586a0a9e422b2ebdd5c1678535a14b326a87a3dd.
